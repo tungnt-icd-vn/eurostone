@@ -2,6 +2,7 @@
 	Layout
 ------------------------------------------------------------*/
 .l-main {
+<<<<<<< HEAD
 	// width: 100%;
 	// color: $color1;
 	// min-height: 50vh;
@@ -12,6 +13,18 @@
 	// @include sp{
 	// 	padding-top: 60px;
 	// }
+=======
+	width: 100%;
+	color: $color1;
+	min-height: 50vh;
+	max-width: 1440px;
+	margin: 20px auto;
+	max-width: 1200px;
+	padding-top: 101px;
+	@include sp{
+		padding-top: 60px;
+	}
+>>>>>>> e02c111c4aae0728d2a01272fb84213539e23fde
 }
 .row{
 	@include flex;
