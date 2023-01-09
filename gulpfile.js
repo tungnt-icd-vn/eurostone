@@ -4,11 +4,7 @@ const sass = require('gulp-sass');
 const sourcemaps = require('gulp-sourcemaps');
 const browserSync = require('browser-sync').create();
 const del = require('del');
-<<<<<<< HEAD
 const autoprefixer = require('gulp-autoprefixer');
-=======
-
->>>>>>> e02c111c4aae0728d2a01272fb84213539e23fde
 
 // Clean style when build
 function clean() {
@@ -19,12 +15,8 @@ function clean() {
 function style() {
     return gulp.src('root/scss/**/*.scss')
         .pipe(sourcemaps.init())
-<<<<<<< HEAD
         .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
         .pipe(autoprefixer())
-=======
-        .pipe(sass().on('error', sass.logError))
->>>>>>> e02c111c4aae0728d2a01272fb84213539e23fde
         .pipe(sourcemaps.write({ includeContent: false }))
         .pipe(sourcemaps.init({ loadMaps: true }))
         .pipe(sourcemaps.write('.'))

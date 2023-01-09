@@ -15,6 +15,8 @@ html
     meta(http-equiv='X-UA-Compatible' content='IE=edge')
     meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
     title=title
+    link(rel="stylesheet" type="text/css" href=path+'assets/css/slick.css')
+    link(rel="stylesheet" type="text/css" href=path+'assets/css/slick-theme.css')
     link(rel='stylesheet' href=path+'assets/css/style.css')
     link(rel='preconnect' href='https://fonts.googleapis.com')
     link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin='')
@@ -36,16 +38,11 @@ html
     meta(property='twitter:image' content=image)
 
 
-
   body(itemscope="" itemtype="http://schema.org/WebPage")
     include ../_modules/header
     main.l-main
       block container
     include ../_modules/footer
-<<<<<<< HEAD
-    script(type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" ,defer async)
+    script(type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js")
+    script(type="text/javascript" src=path+"assets/js/slick.min.js" ,defer async)
     script(type="text/javascript" src=path+"assets/js/common.js" ,defer)
-=======
-    //-script(src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js")
-    script(src=path+"assets/js/common.js")
->>>>>>> e02c111c4aae0728d2a01272fb84213539e23fde
