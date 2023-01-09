@@ -1,0 +1,19 @@
+
+.m-slider{
+  padding: 36.625rem 0;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: white;
+  background-image: url(../../assets/images/bg_main.svg);
+}
+.webp{
+  .m-slider{
+    background-image: url(../../assets/images/bg_main.webp);
+  }
+}
+.avif{
+  .m-slider{
+    background-image: url(../../assets/images/bg_main.avif);
+  }
+}
