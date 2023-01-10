@@ -1,6 +1,6 @@
 
 .m-slider{
-  padding: 36.625rem 0;
+  padding: 18rem 0;
   background-position: bottom;
   background-repeat: no-repeat;
   background-size: cover;
@@ -8,7 +8,7 @@
   background-image: url(../../assets/images/bg_main.svg);
 }
 .webp{
-  .m-slider{
+  .m-s lider{
     background-image: url(../../assets/images/bg_main.webp);
   }
 }
@@ -16,4 +16,11 @@
   .m-slider{
     background-image: url(../../assets/images/bg_main.avif);
   }
+}
+.m-carousel.slick-not-init {
+	.m-carousel_item {
+		&:nth-child(n+2) {
+			display: none;
+		}
+	}
 }

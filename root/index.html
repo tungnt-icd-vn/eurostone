@@ -5,12 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Trang chủ - Spiderum</title>
-    <link rel="stylesheet" type="text/css" href="assets/css/slick.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/slick-theme.css">
+    <link rel="preload" href="assets/css/slick.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+      <link rel="stylesheet" href="assets/css/slick.css">
+    </noscript>
+    <link rel="preload" href="assets/css/slick-theme.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+      <link rel="stylesheet" href="assets/css/slick-theme.css">
+    </noscript>
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
     <!-- Primary Meta Tags-->
     <meta name="title" content="Trang chủ - Spiderum">
     <meta name="description" content="Trang chủ - Spiderum trang tin tức">
@@ -68,18 +74,59 @@
     <main class="l-main">
       <section class="m-slider">
         <div class="m-slider_inner frow frow-container">
-          <div class="col-md-1-4">
+          <div class="col-md-1-2">
             <h2 class="m-title">DEKTON</h2>
             <p>
               THIẾT KẾ VÔ TẬN<br> TÍNH NĂNG TIÊN TIẾN</p>
           </div>
-          <div class="col-md-1-8"></div>
+          <div class="col-md-1-2">
+            <div class="m-carousel">
+              <div class="m-carousel_item">
+                <picture>
+                  <source srcset="assets/images/carousel.avif" type="image/avif">
+                  <source srcset="assets/images/carousel.webp" type="image/webp"><img src="assets/images/carousel.jpg" alt="THIẾT KẾ VÔ TẬN TÍNH NĂNG TIÊN TIẾN" loading="lazy" decoding="async" width="700" height="400">
+                </picture>
+              </div>
+              <div class="m-carousel_item">
+                <picture>
+                  <source srcset="assets/images/carousel.avif" type="image/avif">
+                  <source srcset="assets/images/carousel.webp" type="image/webp"><img src="assets/images/carousel.jpg" alt="THIẾT KẾ VÔ TẬN TÍNH NĂNG TIÊN TIẾN" loading="lazy" decoding="async" width="700" height="400">
+                </picture>
+              </div>
+              <div class="m-carousel_item">
+                <picture>
+                  <source srcset="assets/images/carousel.avif" type="image/avif">
+                  <source srcset="assets/images/carousel.webp" type="image/webp"><img src="assets/images/carousel.jpg" alt="THIẾT KẾ VÔ TẬN TÍNH NĂNG TIÊN TIẾN" loading="lazy" decoding="async" width="700" height="400">
+                </picture>
+              </div>
+              <div class="m-carousel_item">
+                <picture>
+                  <source srcset="assets/images/carousel.avif" type="image/avif">
+                  <source srcset="assets/images/carousel.webp" type="image/webp"><img src="assets/images/carousel.jpg" alt="THIẾT KẾ VÔ TẬN TÍNH NĂNG TIÊN TIẾN" loading="lazy" decoding="async" width="700" height="400">
+                </picture>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="m-intro frow-container">
+        <div class="frow">
+          <div class="m-intro_image col-md-1-2">
+            <picture>
+              <source srcset="assets/images/intro.avif" type="image/avif">
+              <source srcset="assets/images/intro.webp" type="image/webp"><img src="assets/images/intro.jpg" alt="Giới Thiệu UPS" loading="lazy" decoding="async" width="601" height="468">
+            </picture>
+          </div>
+          <div class="m-intro_info col-md-1-2">
+            <h2 class="m-ttl">Giới Thiệu UPS</h2>
+            <p>Text text text text text text text text text text text text text text text text text text text text text text text text text text. Text text text text text text text text text text text text text text text text text text text text text text text text text text.</p>Text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text...<a class="m-btn frow" href>XEM THÊM<img src="assets/images/ico_arrow.svg" alt="xem thêm" loading="lazy" decoding="async" width="40" height="15"></a>
+          </div>
         </div>
       </section>
     </main>
     <footer class="c-footer">
       <div class="c-footer__inner">
-        <div class="c-footer__logo"><img src="assets/images/logo.svg" alt=""></div>
+        <div class="c-footer__logo"><img src="assets/images/logo.svg" alt="logo" width="280" height="62"></div>
         <ul class="c-footer__menu">
           <li><a href="">Về Spiderum</a></li>
           <li><a href="">Chuyên mục</a></li>
@@ -102,6 +149,6 @@
     </footer>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript" src="assets/js/slick.min.js" defer async></script>
-    <script type="text/javascript" src="assets/js/common.js" defer></script>
+    <script type="text/javascript" src="assets/js/common.js" defer async></script>
   </body>
 </html>

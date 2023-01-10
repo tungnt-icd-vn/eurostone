@@ -9,7 +9,7 @@
 	--grey-dark-five: #2B2B2B;
 	--sub-color: #666;
 
-	
+
   }
   [data-theme='dark'] {
 	--background: #494e51;
@@ -118,7 +118,8 @@ body {
   -webkit-text-size-adjust: none;
   -moz-text-size-adjust: none;
   -ms-text-size-adjust: none;
-  font-family: 'Noto Sans', sans-serif;
+  font-family: 'Open Sans', sans-serif;
+	font-display: swap;
 }
 
 body,
@@ -133,7 +134,7 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: Noto Sans,sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	font-display: swap;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -194,4 +195,11 @@ a {
 
 form label {
 	cursor: pointer;
+}
+
+img,
+video,
+iframe {
+  max-inline-size: 100%;
+  block-size: auto;
 }
