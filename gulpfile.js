@@ -5,55 +5,100 @@ const sourcemaps = require('gulp-sourcemaps');
 const browserSync = require('browser-sync').create();
 const del = require('del');
 const autoprefixer = require('gulp-autoprefixer');
-
+const minify = require('gulp-minify');
+const imagemin = require('gulp-imagemin');
 // Clean style when build
 function clean() {
-    return del(['./root/assets/css/'], ['./root/**/*.html']);
+    return del(['./dist/assets/css/'], ['./dist/**/*.html']);
 }
 
 //compile scss into css
 function style() {
-    return gulp.src('root/scss/**/*.scss')
+    return gulp.src('scss/**/*.scss')
         .pipe(sourcemaps.init())
         .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
         .pipe(autoprefixer())
         .pipe(sourcemaps.write({ includeContent: false }))
         .pipe(sourcemaps.init({ loadMaps: true }))
         .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest('root/assets/css'))
+        .pipe(gulp.dest('./dist/assets/css'))
+        .pipe(browserSync.stream());
+}
+
+function css() {
+    return gulp.src('styles/**/*.css')
+        .pipe(gulp.dest('./dist/assets/css'))
         .pipe(browserSync.stream());
 }
 
 //compile jade into html
 function html() {
-    return gulp.src(['root/pug/**/*.pug', '!root/pug/_layout/*.pug', '!root/pug/_modules/*.pug', '!root/pug/_mixins/*.pug'])
+    return gulp.src(['pug/**/*.pug', '!pug/_layout/*.pug', '!pug/_modules/*.pug', '!pug/_mixins/*.pug'])
         .pipe(pug({
             doctype: 'html',
             pretty: true
         }))
-        .pipe(gulp.dest('root/'));
+        .pipe(gulp.dest('./dist/'));
 }
 
 function watch() {
     browserSync.init({
         server: {
-            baseDir: "./root"
+            baseDir: "./dist"
         },
         port: 4000
     });
-    gulp.watch('root/scss/**/*.scss', style);
-    gulp.watch('root/pug/**/*.pug', html);
-    gulp.watch('root/pug/**/*.pug').on('change', browserSync.reload);
-    gulp.watch('root/*.html').on('change', browserSync.reload);
-    gulp.watch('root/assets/js/**/*.js').on('change', browserSync.reload);
+    gulp.watch('scss/**/*.scss', style);
+    gulp.watch('pug/**/*.pug', html);
+    gulp.watch('pug/**/*.pug').on('change', browserSync.reload);
+    gulp.watch('styles/**/*.css').on('change', browserSync.reload);
+    gulp.watch('dist/**/*.html').on('change', browserSync.reload);
+    gulp.watch('assets/js/**/*.js').on('change', browserSync.reload);
+    gulp.watch('assets/fonts/').on('change', browserSync.reload);
+    gulp.watch('assets/images/*').on('change', browserSync.reload);
+}
+
+function copyFont(){
+    return gulp.src('assets/font/*')
+    .pipe(gulp.dest('./dist/assets/fonts'))
+}
+
+function js(){
+    return gulp.src('assets/js/*')
+    .pipe(minify({
+        ignoreFiles: ['.combo.js', '-min.js'],
+        noSource:true
+    }))
+    .pipe(gulp.dest('./dist/assets/js'))
+}
+
+
+function images(){
+    return gulp.src('assets/images/*')
+    .pipe(imagemin([
+        imagemin.gifsicle({interlaced: true}),
+        imagemin.mozjpeg({quality: 75, progressive: true}),
+        imagemin.optipng({optimizationLevel: 5}),
+        imagemin.svgo({
+            plugins: [
+                {removeViewBox: true},
+                {cleanupIDs: false}
+            ]
+        })
+    ]))
+    .pipe(gulp.dest('./dist/assets/images'))
 }
 
 // define complex tasks
-const build = gulp.series(clean, style, html);
+const build = gulp.series(clean, style,js,copyFont,images,css, html);
 
 // export tasks
 exports.style = style;
 exports.html = html;
+exports.images = images;
+exports.copyFont = copyFont;
+exports.css = css;
+exports.js = js;
 exports.build = build;
 exports.watch = watch;
 exports.default = watch;
