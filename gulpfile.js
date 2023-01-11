@@ -6,6 +6,7 @@ const browserSync = require('browser-sync').create();
 const del = require('del');
 const autoprefixer = require('gulp-autoprefixer');
 const minify = require('gulp-minify');
+const cleanCSS = require('gulp-clean-css');
 const imagemin = require('gulp-imagemin');
 // Clean style when build
 function clean() {
@@ -27,6 +28,7 @@ function style() {
 
 function css() {
     return gulp.src('styles/**/*.css')
+        .pipe(cleanCSS({compatibility: 'ie8'}))
         .pipe(gulp.dest('./dist/assets/css'))
         .pipe(browserSync.stream());
 }
@@ -90,8 +92,7 @@ function images(){
 }
 
 // define complex tasks
-const build = gulp.series(clean, style,js,copyFont,images,css, html);
-
+const build = gulp.series(clean,js,copyFont,images, html,style,css);
 // export tasks
 exports.style = style;
 exports.html = html;
