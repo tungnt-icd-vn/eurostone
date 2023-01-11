@@ -8,9 +8,30 @@
 	position: fixed;
 	top: 0;
 	z-index: 9;
+	@include sp{
+		padding: 15px 0;
+	}
+	&_logo{
+		img{
+			width: 62.91px;
+			width: 280px;
+		}
+		@include sp{
+			img{
+				height: 40px;
+				width: fit-content;
+			}
+		}
+	}
 	&_nav{
 		a{
 			color: white;
+		}
+		@include sp{
+			visibility: hidden;
+			opacity: 0;
+			transform: translateX(-100%);
+			display: none;
 		}
 	}
 	&_top{

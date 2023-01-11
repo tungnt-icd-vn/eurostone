@@ -48,6 +48,18 @@
 	margin-right: auto;
 	margin-left: auto;
 }
+.only-pc{
+	display: block;
+	@include sp{
+		display: none !important;
+	}
+}
+.only-sp{
+	display: none;
+	@include sp{
+		display: block;
+	}
+}
 @media (max-width: 576px) {
 	.l-container {
 		width: 100%;

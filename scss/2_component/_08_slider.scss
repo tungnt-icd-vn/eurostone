@@ -1,20 +1,37 @@
 
 .m-slider{
-  padding: 18rem 0;
-  background-position: bottom;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-color: white;
-  background-image: url(../../assets/images/bg_main.svg);
-}
-.webp{
-  .m-s lider{
-    background-image: url(../../assets/images/bg_main.webp);
+  background-color: #000936;
+  position: relative;
+  margin-top: 104px;
+  padding: 5rem 0 1rem;
+  color: white;
+  @include sp{
+    margin-top: 75px;
+    padding: 1rem 0;
   }
-}
-.avif{
-  .m-slider{
-    background-image: url(../../assets/images/bg_main.avif);
+  &::after{
+    content: '';
+    background-image: url(../../assets/images/bg_main.svg);
+    position: absolute;
+    background-size: contain;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    display: inline-block;
+    width: 100%;
+    height: -webkit-fill-available;
+    bottom: -18rem;
+    z-index: -1;
+  }
+  .m-title{
+    font-size: 6rem;
+    font-weight: bold;
+    line-height: 1.1;
+  }
+  p{
+    margin-top: 1.2rem;
+    font-size: 2.6rem;
+    line-height: 1.5;
+    font-weight: bold;
   }
 }
 .m-carousel.slick-not-init {
