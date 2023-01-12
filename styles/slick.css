@@ -277,7 +277,7 @@
     color: transparent;
     border: 0;
     outline: none;
-    background: transparent;
+    /* background: transparent; */
 }
 .slick-dots li button:hover,
 .slick-dots li button:focus
@@ -300,9 +300,14 @@
     background-color: #fff;
     text-align: center;
     opacity: .25;
+    border-radius: 100%;
 }
 .slick-dots li.slick-active button:before
 {
     opacity: .75;
     color: black;
+}
+.slick-dots, .slick-dots:hover, .slick-dots button, [type="button"] {
+    background-color: transparent !important;
+    border: transparent !important;
 }
