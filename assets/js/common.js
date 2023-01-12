@@ -11,7 +11,7 @@ function addClass(A){document.documentElement.classList.add(A)}var avif=new Imag
 // };
 // navicon.addEventListener("click", toggleMenu, false);
 $( document ).ready(function() {
-  $('.m-carousel').slick({
+  $('.m-carousel').not('.slick-initialized').slick({
     dots: true,
     speed: 300,
     arrows: false
